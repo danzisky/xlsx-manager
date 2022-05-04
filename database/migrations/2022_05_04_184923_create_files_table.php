@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
-            $table->boolean('has_header');
+            $table->longText('storage_name')->nullable();
+            $table->longText('description')->nullable();
+            $table->boolean('has_header')->default(false);
             $table->timestamps();
         });
     }

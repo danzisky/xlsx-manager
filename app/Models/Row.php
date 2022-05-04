@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Row extends Model
 {
     use HasFactory;
+
+    public function file() {
+        return $this->belongsTo(File::class);
+    }
 }

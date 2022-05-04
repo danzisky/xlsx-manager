@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
+use Importer;
 
 class FilesController extends Controller
 {
@@ -13,7 +16,7 @@ class FilesController extends Controller
      */
     public function index()
     {
-        //
+        echo('bomb');
     }
 
     /**
@@ -24,7 +27,17 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'spreadsheet' => ['required', 'max:5000', 'mimes:xlsx,xls,csv'],
+        ]);
+        
+        $dateTime = date('Ymd_His');
+        $file = $request->file('spreadsheet');
+        $path = $file->store('spreadsheets/uploaded');
+        $fileName = $file->getClientOriginalName();
+        $excel = Importer::make('Excel');
+        dd($excel);
     }
 
     /**
