@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('file_id');
             $table->string('content');
+            
+            $table->string('row')->nullable();
+            $table->string('column')->nullable();
             $table->timestamps();
         });
     }

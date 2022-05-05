@@ -9,6 +9,13 @@ class Header extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'file_id',
+        'content',
+        'row',
+        'column',
+    ];
+
     public function file() {
         return $this->belongsTo(File::class);
     }
