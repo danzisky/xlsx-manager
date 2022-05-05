@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('headers', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('file_id');
-            $table->string('content');
-            
+            $table->string('content')->nullable();
             $table->string('row')->nullable();
             $table->string('column')->nullable();
             $table->timestamps();
