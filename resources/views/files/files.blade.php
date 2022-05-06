@@ -7,9 +7,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 w3-container">
-            <a href="{{ route('dashboard') }}" class="w3-block w3-left w3-margin-bottom"><button class="w3-button w3-grey w3-margin-top" id="submit_button" name="submit_button" type="submit">
-                DASHBOARD
-            </button></a>
+            <div class="w3-block w3-left w3-margin-bottom">
+                <a href="{{ route('dashboard') }}"><button class="w3-button w3-grey w3-margin-top" id="submit_button" name="submit_button" type="submit">
+                    DASHBOARD
+                </button></a>
+            </div>
             
             <?php
             $files = $files;

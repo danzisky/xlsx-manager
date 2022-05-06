@@ -61,7 +61,9 @@ class FilesController extends Controller
             $fileName = $file->getClientOriginalName();
             $excel = (new FilesImport)->toArray($path);
 
-            $has_header = in_array($request->has_header, [true, 1, '1', 'yes', 'YES', 'true']) ? true: false;
+            $gate = ['1', 'yes', 'YES', 'true'];
+            $has_header = $request['has_header'] ? 'true' : $request['has_header'];
+            $has_header = in_array($request['has_header'], $gate) ? true: false;
 
             $valid_file = $file->isValid();
             isset($request->email) ? $user = User::where(['email' => $request->email])->get() : $user = [];
@@ -111,7 +113,7 @@ class FilesController extends Controller
                             $data = [
                                 'file_name' => $fileName,                            
                                 'file_details' => [
-                                    'header' => false,
+                                    'header' => $has_header,
                                     'rows' => $record_row,
                                     'columns' => $record_column,
                                     'owner' => $user[0]['name'],
@@ -156,7 +158,7 @@ class FilesController extends Controller
                             $data = [                            
                                 'file_name' => $fileName,                            
                                 'file_details' => [
-                                    'header' => false,
+                                    'header' => $has_header,
                                     'rows' => $record_row,
                                     'columns' => $record_column,
                                     'owner' => $user[0]['name'],

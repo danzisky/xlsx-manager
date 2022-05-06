@@ -7,9 +7,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 w3-container">
-            <a href="{{ route('sheets.index') }}" class="w3-block w3-left w3-margin-bottom"><button class="w3-button w3-grey w3-margin-top" id="submit_button" name="submit_button" type="submit">
-                BACK TO FILES
-            </button></a>
+            <div class="w3-block w3-left w3-margin-bottom">
+                <a href="{{ route('sheets.index') }}"><button class="w3-button w3-grey w3-margin-top" id="submit_button" name="submit_button" type="submit">
+                    BACK TO FILES
+                </button></a>
+            </div>
             
             <?php
             echo '<div class="w3-xlarge w3-panel">Your Document: '.$file[0]['name'].'</div>';
