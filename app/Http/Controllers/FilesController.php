@@ -229,7 +229,7 @@ class FilesController extends Controller
                 'file_id' => $id,
                 'content' => $record['content'],
                 'row' => '',
-                'column' => (string)$record['content'],
+                'column' => (string)$record['column'],
             ]);
         }
         if ($entry) {
